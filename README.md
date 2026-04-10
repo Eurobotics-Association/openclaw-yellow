@@ -15,63 +15,6 @@
 
 ## ✨ Executive summary
 
-> 🟡 **Why Yellow?** In the cybersecurity color-wheel model, Yellow is commonly associated with **secure development**: building systems with security in mind from the start. Open-Claw Yellow extends that logic to AI operators by combining secure development, operational guardrails, traceability, and governance.
-> Open-Claw Yellow is a practical effort to add a missing layer of **governance, traceability, approval control, secret handling, and operational safety** around Open-Claw deployments.
-
-The problem is no longer theoretical.
-
-Agent systems are increasingly able to:
-
-* read repositories
-* write code
-* use secrets
-* consume budget
-* talk to external systems
-* act with partial autonomy
-
-That creates a dangerous gap between what an AI operator can do and what an organization can actually **supervise, approve, audit, recover, and trust**.
-
-Open-Claw Yellow is an attempt to reduce that gap.
-
-> 🟡 **Core intuition:** powerful AI operators need visible guardrails, not blind trust.
-
-It is **not** a criticism of Open-Claw. It is a practical answer to a missing layer that many IT managers, technical leads, and operators will need before allowing an AI agent to act inside a real environment.
-
----
-
-## 🎨 Yellow in the cyber color wheel
-
-Yellow already has a strong meaning for many cyber and engineering professionals.
-
-In the extended cybersecurity color-wheel model:
-
-* **Red** tests and attacks
-* **Blue** detects and defends
-* **Purple** improves the loop between offense and defense
-* **Green** bridges DevOps and operational security
-* **White** governs, audits, and sets rules
-* **Yellow** helps ensure systems are **built securely by design**
-
-Open-Claw Yellow is intentionally named for that Yellow space.
-
-It focuses on the point where:
-
-* software engineering
-* AI operator design
-* secure-by-default implementation
-* practical governance
-* traceability
-
-must meet.
-
-This project therefore speaks directly to:
-
-* full-stack developers building agent-enabled systems
-* cyber engineers who do not want AI operations to become ungoverned attack surfaces
-* IT and security managers who need bounded autonomy rather than blind trust
-
-> 🟡 **Positioning:** Open-Claw Yellow sits primarily in the Yellow zone, while intentionally interfacing with White, Blue, Green, and Purple concerns.
-
 ## ⚠️ Why this matters
 
 ### 🚨 The current risk
@@ -157,21 +100,6 @@ This layer should help organizations answer basic but critical questions:
 | Can we investigate compromise?        | Incident response      |
 
 ---
-
-## 🤝 Relationship to other cyber teams
-
-Open-Claw Yellow is not meant to replace other security functions. It is meant to strengthen the AI operator layer so it can integrate more cleanly with them.
-
-| Team color | Relationship with Open-Claw Yellow                                    |
-| ---------- | --------------------------------------------------------------------- |
-| Red        | Helps define what should be testable and challengeable                |
-| Blue       | Benefits from better logs, clearer events, and operational visibility |
-| Purple     | Gains a better framework for feedback loops and adversarial learning  |
-| Green      | Connects to DevSecOps, host hardening, logging, and secure SDLC       |
-| White      | Gains policy, approval paths, governance signals, and traceability    |
-| Gray       | Can help inform future threat models for AI operator misuse           |
-
-> 🧠 **Interpretation:** Yellow does not compete with those teams. It helps ensure AI operators are built and run in ways those teams can actually supervise and trust.
 
 ## 🧭 Design principles
 
@@ -483,32 +411,6 @@ Open-Claw Yellow is not intended to:
 
 ---
 
-## 💛 Why “Yellow”
-
-Yellow evokes:
-
-* caution
-* visibility
-* awareness
-* controlled movement
-* secure development by design
-
-In the cyber color-wheel model, Yellow is also a meaningful signal for teams concerned with **building systems securely from the start**.
-
-That makes it especially appropriate here.
-
-Open-Claw Yellow is not just about warning signs. It is about creating an AI operator layer that is:
-
-* built with security in mind
-* governable in production
-* traceable under pressure
-* understandable to both engineers and cyber teams
-
-It is not the red of panic or the green of blind automation.
-It represents a deliberate attempt to operate AI systems with warning signs visible and human judgment preserved.
-
----
-
 ## 🤝 Contribution mindset
 
 This project should remain:
@@ -543,3 +445,11 @@ Open-Claw Yellow is an attempt to reduce that risk in a practical, reusable way.
 * package the phase 1 reference implementation
 * validate the first real operator deployment
 * engage the community for feedback and contribution
+
+---
+
+## 📬 Contribute
+
+To contribute, get in touch through GitHub: `rfv-370` on `https://github.com/rfv-370` or by email at `contact@eurobotics.org`.
+
+Please allow a bit of time for a response — we are humans. ;-)
