@@ -6,7 +6,7 @@
 ![Multi-OS](https://img.shields.io/badge/Multi--OS-Linux%20%7C%20macOS%20%7C%20Windows-informational)
 
 Author: F.M. Robert Vergnes / robert.vergnes@yahoo.fr  
-Assisted-by: OpenAI Codex: GPT-5.3-Codex [exec_command] [apply_patch]  
+Assisted-by: Open AI ChatGPT 5.4 [design] [code review], OpenAI Codex: GPT-5.3-Codex [patch implementation] [repo management]  
 Last-Updated: 2026-04-19
 
 > **The Yellow Open-Claw Project**  
