@@ -6,7 +6,9 @@
 ![Multi-OS](https://img.shields.io/badge/Multi--OS-Linux%20%7C%20macOS%20%7C%20Windows-informational)
 
 Author: F.M. Robert Vergnes / robert.vergnes@yahoo.fr  
-Assisted-by: Open AI ChatGPT 5.4 [design] [code review], OpenAI Codex: GPT-5.3-Codex [patch implementation] [repo management]  
+
+Assisted-by: ChatGPT GPT-5.4 Thinking [canmore] [chat] (high level design, high level debug, strategy, coherence repo review) , Codex model GPT5.3-codex (full stack code design, patch design , repo management, documentation management), Claude Sonnet 4.6 [chat] (convergence sparing partner, second view debug)
+
 Last-Updated: 2026-04-19
 
 > **The Yellow Open-Claw Project**  
