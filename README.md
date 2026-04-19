@@ -1,455 +1,202 @@
 # 🟡 Open-Claw Yellow
 
-> **The Yellow Open-Claw Project**
-> **A practical AI and cyber governance layer for Open-Claw operators**
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Lint](https://img.shields.io/badge/Lint-markdown%20%7C%20ansible-blue)
+![Ansible baseline](https://img.shields.io/badge/Baseline-openclaw--ansible-6f42c1)
+![Multi-OS](https://img.shields.io/badge/Multi--OS-Linux%20%7C%20macOS%20%7C%20Windows-informational)
+
+Author: F.M. Robert Vergnes / robert.vergnes@yahoo.fr  
+Assisted-by: OpenAI Codex: GPT-5.3-Codex [exec_command] [apply_patch]  
+Last-Updated: 2026-04-19
+
+> **The Yellow Open-Claw Project**  
+> A practical governance and security overlay for OpenClaw operators.
 
 ---
 
 ## 🚦 Status
 
-**Draft v0.2**
-**Updated:** 2026-04-10
-**Positioning:** open community initiative, practical governance layer, security-first operator model
+- **Draft:** v0.3
+- **Positioning:** public governance/security overlay project around OpenClaw
+- **First real implementation target:** **Oscar-26**
 
 ---
 
-## ✨ Executive summary
+## ✨ What this repository is
+
+This repository is **Eurobotics-Association/openclaw-yellow**:  
+https://github.com/Eurobotics-Association/openclaw-yellow
+
+Open-Claw Yellow is designed as an **attachable layer** that sits on top of OpenClaw for governance, traceability, approval flow, and security baseline operations.
+
+It is intentionally:
+
+- ✅ **not a fork** of OpenClaw
+- ✅ **not a replacement** for OpenClaw
+- ✅ **not a bloated enterprise compliance framework**
+
+It is a practical overlay for full-stack developers, cyber experts, IT managers, and governance-minded operators.
+
+---
+
+## 🔗 Upstream references (official)
+
+- Official OpenClaw upstream: https://github.com/openclaw/openclaw
+- OpenClaw Ansible baseline/reference: https://github.com/openclaw/openclaw-ansible
+
+Yellow follows OpenClaw as upstream authority and uses `openclaw-ansible` as an operational baseline reference for install and host posture.
+
+---
 
 ## ⚠️ Why this matters
 
-### 🚨 The current risk
+AI operators can move fast and create value, but without governance they can also create cyber-mayhem: touching code, secrets, infra, and spend without enough control.
 
-Today, many agent deployments are built first for:
-
-* speed
-* demos
-* experimentation
-* developer convenience
-
-That is understandable.
-
-> ⚡ **But once an agent can touch code, infrastructure, tokens, costs, or organizational workflows, the absence of governance becomes a recipe for cyber-mayhem.**
-
-### 🧩 Typical weak points
-
-* poor traceability of what the agent did and why
-* no structured approval path for risky actions
-* unclear handling of secrets and tokens
-* no distinction between safe actions and privileged actions
-* weak rebuild capability after failure or compromise
-* insufficient supervision of model usage, costs, and autonomy
-* lack of operational visibility into the environment the agent is running in
-
-> For hobby usage, this may be acceptable.
-> For professional usage, it is not.
-
----
-
-## 🖼️ The idea in one picture
-
-```mermaid
-flowchart TD
-    A[Open-Claw Agent] --> B[Code / Repos / APIs / Servers]
-    A --> C[Secrets]
-    A --> D[Budgets and Tokens]
-    A --> E[External Communications]
-
-    F[Governance Layer] --> G[Policy Rules]
-    F --> H[Approval Gates]
-    F --> I[Audit Trail]
-    F --> J[Secret Strategy]
-    F --> K[Runtime Guardrails]
-    F --> L[Recovery and Rebuild]
-
-    A -.without governance.-> M[Cyber-mayhem risk]
-    F -.adds supervision and control.-> A
-```
-
----
-
-## 🌍 Project vision
-
-Open-Claw Yellow aims to make AI operator deployments safer not only for operators, but also for the teams around them.
-
-It is fundamentally a **secure development and governance project for AI operators**.
-Open-Claw Yellow aims to make AI operator deployments more:
-
-* governable
-* auditable
-* reviewable
-* resilient
-* explainable
-
-The long-term objective is to create a reusable governance layer that can sit around Open-Claw and similar agent systems.
-
-> 🌐 **Ambition:** make AI operator deployments safer, more reviewable, and easier to trust in real organizations.
-
-This layer should help organizations answer basic but critical questions:
-
-| Question                              | Why it matters         |
-| ------------------------------------- | ---------------------- |
-| What did the agent do?                | Traceability           |
-| Why did it do it?                     | Explainability         |
-| Was it allowed?                       | Policy enforcement     |
-| Who approved it?                      | Human accountability   |
-| Which secret did it access?           | Secret governance      |
-| Which branch did it touch?            | Change control         |
-| Which cost did it generate?           | Budget control         |
-| Which environment change did it make? | Ops safety             |
-| Can we rebuild after failure?         | Operational resilience |
-| Can we investigate compromise?        | Incident response      |
+- weak traceability creates investigation blind spots
+- missing approval gates can allow risky changes too early
+- poor secret handling increases leak and abuse risk
+- low recoverability makes failure/compromise hard to contain
+- weak runtime boundaries can turn small mistakes into expensive incidents
 
 ---
 
 ## 🧭 Design principles
 
-### 1. Practical first
-
-The system must help in real-world operations quickly. It must not require a large enterprise rollout just to gain basic safety.
-
-### 2. Minimal trusted autonomy
-
-The agent may execute tasks, but high-risk actions must remain bounded, classified, and reviewable.
-
-### 3. Traceability by default
-
-Important actions must leave an understandable trail for both humans and machines.
-
-### 4. Secrets are assets
-
-Secrets are not mere configuration. They are controlled assets and must be handled accordingly.
-
-### 5. Rebuildability matters
-
-A deployment that cannot be rebuilt cleanly after compromise or failure is not operationally mature.
-
-### 6. Human override is mandatory
-
-A human owner or manager must remain capable of supervising, constraining, and approving critical actions.
-
-### 7. Reuse before reinvention
-
-Where mature tools already exist, they should be reused. The project should build the missing governance glue, not rebuild entire security platforms from scratch.
+- practical first, with deployable guardrails
+- non-destructive overlay over invasive rewrite
+- traceability by default for key actions
+- reuse before reinvention
+- human approval for critical actions
 
 ---
 
-## 🎯 Scope
-
-Open-Claw Yellow is **not** intended to redesign Open-Claw itself.
-
-It is intended to provide a **modular governance and safety layer around it**.
-
-### ✅ In scope
-
-* governance policy
-* approvals
-* auditability
-* secret strategy
-* runtime guardrails
-* operational visibility
-* rebuild and recovery patterns
-
-### ⛔ Out of scope
-
-* replacing Open-Claw core functionality
-* building a full enterprise compliance suite
-* building a full SIEM
-* solving every security issue automatically
-
----
-
-## 🧱 What Open-Claw Yellow is expected to provide
-
-### 🏛️ Governance and policy
-
-* action classes and decision boundaries
-* approval-required actions
-* forbidden actions
-* project scope boundaries
-* model usage policy
-* repo access policy
-* communication and escalation policy
-
-### 🧾 Traceability and audit
-
-* action logging
-* approval logging
-* elevation logging
-* secret-access metadata logging
-* confidential-information handling logs
-* payment and spend tracking metadata
-* human-readable and machine-readable records
-
-### 🔐 Secret and token handling
-
-* separation of runtime secrets and shared organizational secrets
-* support for encrypted secret backup
-* support for local secret access patterns
-* support for controlled release of secrets to runtime
-* no plaintext secret storage in versioned repositories
-
-### 🌿 Safe repository operations
-
-* branch protection assumptions
-* mandatory PR workflow for critical repos
-* no silent merge to main
-* no public exposure without approval
-* constrained credentials per project or trust boundary
-
-### 🛡️ Runtime safeguards
-
-* action limits
-* retry limits
-* stop conditions
-* anomaly detection hooks
-* notification paths
-* bounded cost behavior
-
-### 👀 Operational visibility
-
-* basic system security checks
-* firewall baseline
-* fail2ban baseline
-* service health checks
-* disk, load, and open-port checks
-* ability for the agent to detect suspicious conditions and ask for help
-
-### 🔁 Rebuild and recovery
-
-* infrastructure backup expectations
-* configuration snapshot strategy
-* encrypted secret backup strategy
-* rebuild checklist
-* known-good state reference
-
----
-
-## 🏗️ Target architecture
-
-```mermaid
-flowchart LR
-    U[Human Owner / IT Manager] --> P[Policies and Approvals]
-    U --> C1[Telegram]
-    U --> C2[Email]
-
-    A[Open-Claw Agent] --> R[GitHub Repos]
-    A --> S[Local Runtime Secrets]
-    A --> O[Operating System]
-    A --> M[Models and APIs]
-
-    G[Open-Claw Yellow Layer] --> P
-    G --> T[Audit Store]
-    G --> H[Security Checks]
-    G --> B[Backup and Rebuild]
-    G --> X[Cost and Runtime Guardrails]
-
-    G -.governs.-> A
-    H --> O
-    T --> U
-    B --> U
-```
-
----
-
-## ♻️ Reuse map
-
-Open-Claw Yellow should reuse existing tools wherever possible.
-
-> ♻️ **Rule:** reuse mature bricks, build only the missing governance glue.
-
-### ✅ Reuse, not rebuild
-
-| Area                | Reuse                              | Why                                     |
-| ------------------- | ---------------------------------- | --------------------------------------- |
-| Agent execution     | Open-Claw                          | Core execution layer already exists     |
-| Repo workflow       | GitHub                             | PRs, branch protection, collaboration   |
-| Lightweight audit   | SQLite                             | Fast, local, queryable                  |
-| Secret backup       | age                                | Simple encrypted file backup            |
-| Firewall            | UFW                                | Good baseline for single-host hardening |
-| Intrusion response  | fail2ban                           | Simple and effective first layer        |
-| Service supervision | systemd                            | Native Linux control plane              |
-| Host visibility     | `ss`, `journalctl`, `df`, `uptime` | Enough for phase 1                      |
-
-### 🔎 Tools that may be evaluated
-
-* Infisical for structured secret delivery
-* Vault for heavier enterprise secret management
-* SOPS for encrypted config management
-* email and Telegram as dual communication channels
-
-### 🚫 What we do not want to build initially
-
-* a full SIEM
-* a full enterprise IAM platform
-* a full password manager
-* a complex cloud-native secret platform
-* a full workflow orchestration platform from scratch
-
----
-
-## 🧩 Candidate implementation building blocks
-
-### 1. 📜 Policy pack
-
-A set of machine-readable and human-readable rules defining what the agent may do, what requires approval, and what is forbidden.
-
-### 2. 🧾 Audit layer
-
-A lightweight event store, likely starting with SQLite, to track actions, approvals, elevations, secret events, and confidential interactions.
-
-### 3. 🔐 Secret strategy
-
-A pragmatic secret pattern using encrypted backup and controlled runtime access.
-
-### 4. 📡 Communication layer
-
-At least two contact paths for critical events:
-
-* primary: Telegram
-* secondary: email
-
-### 5. 🛡️ Runtime guardrails
-
-Limits on retries, task counts, model usage, and escalation behavior.
-
-### 6. 🔒 Security baseline pack
-
-Basic host hardening, firewall, fail2ban, SSH hardening, and security checks.
-
-### 7. 🧰 Recovery pack
-
-Scripts, templates, inventories, and rebuild documentation to restore a known-good state.
-
----
-
-## ⚙️ Operating logic
+## 👀 Supervision model (at a glance)
 
 ```mermaid
 flowchart TD
-    A[Agent wants to act] --> B{Action class?}
-    B -->|Safe| C[Execute]
-    B -->|Review required| D[Prepare and request review]
-    B -->|Approval required| E[Block until written approval]
-
-    C --> F[Log action]
-    D --> G[Log request and context]
-    E --> H[Log approval request]
-    H --> I{Approved?}
-    I -->|Yes| J[Execute and log]
-    I -->|No| K[Stop]
+    H[Human supervisor] --> Y[Yellow overlay controls]
+    O[OpenClaw runtime] --> Y
+    Y --> R[Runtime decision gates]
+    Y --> T[Traceability logs]
+    Y --> S[Secret/approval checks]
 ```
 
 ---
 
-## 👥 Intended audience
+## 🧭 Core operating model (latest decisions)
 
-This document is intentionally written for a mixed technical audience that includes both builders and defenders.
+Yellow should prefer **wrapper/drop-in/overlay** design over invasive rewrite.
 
-Primary audiences include:
+1. Detect existing OpenClaw first.
+2. Inventory existing OpenClaw read-only.
+3. If absent, install latest official OpenClaw from official upstream path.
+4. If older OpenClaw exists, **do not silently force-upgrade**; ask user approval first.
+5. Validate vanilla OpenClaw operation.
+6. Attach Yellow governance/security layer non-destructively.
 
-* full-stack developers building or integrating agent-enabled systems
-* cyber experts and security practitioners
-* IT managers
-* CTOs and technical directors
-* founders using AI agents operationally
-* DevOps and platform teams
-* consultants deploying AI-assisted engineering or operator workflows
-* organizations that need practical AI governance without massive overhead
+Yellow supports two practical modes:
 
----
+- **Fresh install mode**
+- **Attach mode**
 
-## 🚫 Non-goals
-
-Open-Claw Yellow is not intended to:
-
-* replace Open-Claw core functionality
-* become a bloated enterprise compliance platform
-* prevent all security incidents
-* eliminate the need for human supervision
-* solve every governance problem at once
+In both modes, Yellow should preserve existing user configuration whenever possible.
 
 ---
 
-## 🗺️ Initial roadmap
+## 🏗️ Overlay architecture (concise)
 
-### Phase 0 — 🧠 define
+```mermaid
+flowchart LR
+    U[Human authority / supervisor] --> P[Approvals and policy]
+    O[OpenClaw upstream runtime] --> Y[Yellow overlay]
+    Y --> A[Auditability and traceability]
+    Y --> S[Security baseline checks]
+    Y --> G[Governance guardrails]
+    Y --> R[Recoverability and rebuild guidance]
+    Y --> C[Cost/accounting metadata traceability]
 
-* define the governance model
-* define the security baseline
-* define the audit model
-* define the secret strategy
-* define a practical implementation guide
-
-### Phase 1 — 🛠️ prove
-
-* build and test a concrete implementation around a real operator instance
-* validate branch protections, logging, approval flow, and rebuild process
-* validate dual communications and basic host monitoring
-
-### Phase 2 — 📦 package
-
-* package reusable modules
-* document install and operations
-* collect community feedback
-
-### Phase 3 — 🚀 publish and expand
-
-* publish a reusable governance layer or reference implementation
-* expand compatibility beyond the initial use case
+    Y -.non-destructive attach.-> O
+```
 
 ---
 
-## 📦 Expected outputs
+## 🧪 Oscar-26 first implementation track
 
-* governance policy pack
-* implementation guide
-* audit schema
-* security baseline scripts
-* secret handling strategy
-* rebuild checklist
-* examples and community feedback loop
+Oscar-26 is the first real implementation target for validating Yellow decisions in practical operation.
 
----
+Known Oscar identities currently tracked:
 
-## 🤝 Contribution mindset
+- Emails:
+  - `oscar26.aiagent@gmail.com`
+  - `oscar26.aiagent@eurobotics.org`
+- GitHub:
+  - `oscar26aiagent-creator`
 
-This project should remain:
+Governance authority model:
 
-* pragmatic
-* field-tested
-* explainable
-* modular
-* reusable
+- Oscar executes within bounded policy and approval gates.
+- Robert supervises and remains the human authority.
 
-> 🧠 **Mindset:** the goal is not abstract security theater.
+Implementation publication model:
 
-The goal is to help organizations deploy AI operators with enough governance to avoid avoidable disasters.
+- private validation first in `oscar-infra-private`
+- then stable merges back into `openclaw-yellow`
+- after initial stabilization (expected in days/weeks), `openclaw-yellow` `main` becomes the official stable working baseline
+- from that point, stable branches/forks can be used so the public project is visibly collaborative
 
----
-
-## 📍 Current position
-
-This is an attempt, not a finished answer.
-
-It starts from a practical concern:
-**if AI operator systems become widely deployed without governance, traceability, and bounded authority, organizations will eventually face preventable incidents.**
-
-Open-Claw Yellow is an attempt to reduce that risk in a practical, reusable way.
+The private repo is for early validation, not a permanent shadow project.
 
 ---
 
-## ▶️ Proposed next steps
+## 🧩 Governance scope highlights
 
-* refine the narrative and visual identity
-* finalize the reusable module list
-* package the phase 1 reference implementation
-* validate the first real operator deployment
-* engage the community for feedback and contribution
+Yellow documentation currently focuses on:
+
+- approvals and action boundaries
+- traceability and auditability
+- secret handling and operational secrecy hygiene
+- host security baseline
+- communications redundancy (e.g., primary + backup channel)
+- recoverability and rebuildability
+- accounting/payment metadata traceability (AI operator may spend and generate revenue)
 
 ---
 
-## 📬 Contribute
+## 📚 Documentation map
 
-To contribute, get in touch through GitHub: `rfv-370` on `https://github.com/rfv-370` or by email at `contact@eurobotics.org`.
+To keep this README readable, detailed material is split into docs:
 
-Please allow a bit of time for a response — we are humans. ;-)
+- [Architecture](docs/architecture.md)
+- [Install Modes](docs/install-modes.md)
+- [Security Baseline](docs/security-baseline.md)
+- [Oscar-26 First Implementation](docs/oscar-first-implementation.md)
+- [Roadmap](docs/roadmap.md)
+
+## 🏷️ Project-wide markdown metadata policy
+
+All markdown documents in this project must include:
+
+- `Author: F.M. Robert Vergnes / robert.vergnes@yahoo.fr`
+- `Assisted-by: AGENT_NAME: MODEL_VERSION [TOOL1] [TOOL2]`
+
+This is a mandatory project-wide policy for all contributors, including AI agents.
+
+---
+
+## 🗺️ Roadmap (short)
+
+- **Phase 0 — Define:** governance model, install/attach logic, baseline controls.
+- **Phase 1 — Prove (Oscar-26):** validate real workflows and non-destructive attach behavior.
+- **Phase 2 — Package:** publish reusable docs/templates/playbooks.
+- **Phase 3 — Expand:** broaden compatibility and community adoption.
+
+See full details: [docs/roadmap.md](docs/roadmap.md).
+
+---
+
+## 🤝 Contribute / Contact
+
+- GitHub: `rfv-370` at https://github.com/rfv-370
+- Email: `contact@eurobotics.org`
+
+Please allow some response time — humans are in the loop. 🙂
