@@ -127,7 +127,6 @@ Oscar-26 is the first real implementation target for validating Yellow decisions
 Known Oscar identities currently tracked:
 
 - Emails:
-  - `oscar26.aiagent@gmail.com`
   - `oscar26.aiagent@eurobotics.org`
 - GitHub:
   - `oscar26aiagent-creator`
