@@ -9,11 +9,11 @@
 ![Ansible baseline](https://img.shields.io/badge/Baseline-openclaw--ansible-6f42c1)
 ![Multi-OS](https://img.shields.io/badge/Multi--OS-Linux%20%7C%20macOS%20%7C%20Windows-informational)
 
-Author: F.M. Robert Vergnes / robert.vergnes@yahoo.fr  
+Project provenance: initiated by Eurobotics Association contributors, with accountable human-in-the-loop supervision.
 
 Assisted-by: ChatGPT GPT-5.4 Thinking [canmore] [chat] (high level design, high level debug, strategy, coherence repo review) , Codex model GPT5.3-codex (full stack code design, patch design , repo management, documentation management), Claude Sonnet 4.6 [chat] (convergence sparing partner, second view debug)
 
-Last-Updated: 2026-04-19
+Last-Updated: 2026-04-22
 
 > **The Yellow Open-Claw Project**  
 > A practical governance and security overlay for OpenClaw operators.
@@ -128,28 +128,11 @@ flowchart LR
 
 ## 🧪 Oscar-26 first implementation track
 
-Oscar-26 is the first real implementation target for validating Yellow decisions in practical operation.
+Oscar-26 is the first real implementation/validation track for Yellow in practical operation.
 
-Known Oscar identities currently tracked:
+Publication path is staged: early validation happens in a private track first, then stabilized outcomes are merged into `openclaw-yellow` for the public baseline.
 
-- Emails:
-  - `oscar26.aiagent@eurobotics.org`
-- GitHub:
-  - `oscar26aiagent-creator`
-
-Governance authority model:
-
-- Oscar executes within bounded policy and approval gates.
-- Robert supervises and remains the human authority.
-
-Implementation publication model:
-
-- private validation first in `oscar-infra-private`
-- then stable merges back into `openclaw-yellow`
-- after initial stabilization (expected in days/weeks), `openclaw-yellow` `main` becomes the official stable working baseline
-- from that point, stable branches/forks can be used so the public project is visibly collaborative
-
-The private repo is for early validation, not a permanent shadow project.
+Current near-term milestone: first public stabilized release is targeted for **early May 2026**.
 
 ---
 
@@ -177,14 +160,9 @@ To keep this README readable, detailed material is split into docs:
 - [Oscar-26 First Implementation](docs/oscar-first-implementation.md)
 - [Roadmap](docs/roadmap.md)
 
-## 🏷️ Project-wide markdown metadata policy
+## 🏷️ Transparency note
 
-All markdown documents in this project must include:
-
-- `Author: F.M. Robert Vergnes / robert.vergnes@yahoo.fr`
-- `Assisted-by: AGENT_NAME: MODEL_VERSION [TOOL1] [TOOL2]`
-
-This is a mandatory project-wide policy for all contributors, including AI agents.
+This project values clear disclosure of AI-assisted contributions in a contributor-friendly way.
 
 ---
 
