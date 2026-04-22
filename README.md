@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="pictures/OpenClaw-Yellow_2026_11_07_42%20AM.png" alt="Open-Claw Yellow banner" width="100%">
+  <img src="pictures/OpenClaw-Yellow_2026_11_07_42%20AM.jpg" alt="Open-Claw Yellow banner" width="100%">
 </p>
 
 # 🟡 Open-Claw Yellow
